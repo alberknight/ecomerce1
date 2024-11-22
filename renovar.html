@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="recuperacion.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Recuperar Contraseña</h2>
+        <!-- Formulario con el método POST para enviar los datos -->
+        <form id="changePasswordForm">
+            <label for="usuario">Ingrese su Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+            
+            <label for="nueva_contrasena">Nueva Contraseña:</label>
+            <input type="password" id="nueva_contrasena" name="nueva_contrasena" required>
+            
+            <button type="submit">Restablecer Contraseña</button>
+        </form>
+
+        <!-- Div para mostrar mensajes de éxito o error -->
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        // Escuchar el envío del formulario
+        document.getElementById('changePasswordForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevenir el envío tradicional del formulario
+
+            const usuario = document.getElementById('usuario').value;
+            const nuevaContrasena = document.getElementById('nueva_contrasena').value;
+
+            // Enviar la solicitud al servidor usando fetch
+            fetch('procesar_recuperacion.php', {
+                method: 'POST',
+                body: new URLSearchParams({ usuario: usuario, nueva_contrasena: nuevaContrasena }) // Enviar usuario y nueva contraseña
+            })
+            .then(response => response.json())  // espera que el servidor nos envie una respuesta en formato JSON para que podamos trabajar con los datos de manera estructurada.
+            .then(data => {
+                if (data.success) {
+                    // Mostrar el mensaje de éxito y redirigir
+                    showMessage(data.message, 'success');
+                    setTimeout(() => {
+                        window.location.href = 'Login.html';  // Redirige a la página de login
+                    }, 3000); // Espera 3 segundos para mostrar el mensaje
+                } else {
+                    // Mostrar el mensaje de error
+                    showMessage(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                showMessage('Error en la conexión con el servidor. Intenta nuevamente.', 'error');
+            });
+        });
+
+        // mensaje en el frontend
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = message;  // Actualiza el mensaje
+            messageDiv.className = `message ${type}`;  // Asigna la clase para estilo (success o error)
+        }
+    </script>
+
+    <style>
+        .message {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</body>
+</html>

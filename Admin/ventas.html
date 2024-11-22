@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Venta de Pizza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro Venta de Pizza</h1>
+        <p>Selecciona la especialidad de pizza para registrar la venta:</p>
+        
+        <div class="pizza-buttons">
+            <button onclick="registrarVenta('Pepperoni')">Pepperoni</button>
+            <button onclick="registrarVenta('Hawaiana')">Hawaiana</button>
+            <button onclick="registrarVenta('Vegetariana')">Vegetariana</button>
+        </div>
+        
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function registrarVenta(especialidad) {
+            fetch('registrar_venta.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ especialidad: especialidad })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const message = document.getElementById("message");
+                if (data.success) {
+                    message.textContent = `Venta de ${especialidad} registrada exitosamente!`;
+                    message.style.color = 'green';
+                } else {
+                    message.textContent = 'Error al registrar la venta. Intenta nuevamente.';
+                    message.style.color = 'red';
+                }
+            })
+            .catch(() => {
+                message.textContent = 'Error al registrar la venta. Intenta nuevamente.';
+                message.style.color = 'red';
+            });
+        }
+    </script>
+</body>
+</html>

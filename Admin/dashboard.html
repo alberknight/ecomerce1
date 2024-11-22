@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Ventas de Pizzas</title>
+    <link rel="stylesheet" href="dash.css">
+</head>
+<body>
+
+    <h1>Dashboard Ventas de Pizzas</h1>
+    <div class="dashboard">
+        <canvas id="chartVentas" class="chart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('chartVentas').getContext('2d');
+        let chart;
+
+        function actualizarDashboard() {
+            fetch('obtener_ventas.php')
+                .then(response => response.json())
+                .then(data => {
+                    const labels = Object.keys(data);
+                    const cantidades = Object.values(data);
+
+                    if (chart) {
+                        chart.destroy();
+                    }
+
+                    chart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Ventas de Pizzas',
+                                data: cantidades,
+                                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                            }
+                        },
+                    });
+                });
+        }
+
+        // Actualiza el dashboard al cargar
+        actualizarDashboard();
+    </script>
+
+</body>
+</html>

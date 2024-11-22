@@ -1,0 +1,101 @@
+/* Estilos minimalistas con colores fríos */
+body {
+    font-family: Arial, sans-serif;
+    background: url(https://img.freepik.com/premium-photo/eapolitan-homemade-pizza-margarita-from-brick-oven-napoleon-italian-pizza-with-fresh-mozzarella_1167972-264.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+/* Capa de desenfoque */
+.capa-desenfoque {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 20, 35, 0.7); /* Fondo oscuro con más opacidad para mayor contraste */
+    backdrop-filter: blur(15px); /* Aumento el desenfoque para que sea más pronunciado */
+    z-index: -1; /* Detrás del contenedor principal */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: rgba(14, 21, 27, 0.5); /* Fondo oscuro semi-transparente para el contenedor */
+    box-shadow: 0px 4px 8px rgba(14, 21, 27, 0.5); /* Sombra más fuerte para resaltar */
+    border-radius: 8px;
+    text-align: center;
+    z-index: 1;
+    backdrop-filter: blur(20px); /* Aplica el desenfoque al contenedor */
+    -webkit-backdrop-filter: blur(20px); /* Para compatibilidad con Webkit */
+}
+
+/* Estilo de los títulos */
+h2 {
+    margin-bottom: 20px;
+    color: #ffffff; /* Blanco para un buen contraste con fondo oscuro */
+}
+
+/* Estilo de las etiquetas */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    color: #d0d6df; /* Gris claro para las etiquetas */
+}
+
+/* Estilo de los campos de entrada */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #78909c; /* Gris azulado */
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #e3e9ef; /* Fondo suave pero contrastante */
+    color: #2a3f54; /* Tono frío para el texto */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera para resaltar los campos */
+}
+
+/* Estilo de los campos al ser enfocados */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #5c6bc0; /* Azul frío al enfocar */
+    outline: none;
+    box-shadow: 0px 2px 5px rgba(92, 107, 192, 0.5); /* Sombra más pronunciada en foco */
+}
+
+/* Estilo del botón */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5c6bc0; /* Azul frío */
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 15px; /* Ajusta este valor según lo que necesites */
+}
+
+/* Efecto en el botón al pasar el cursor */
+button:hover {
+    background-color: #3949ab; /* Azul más oscuro */
+    transform: translateY(-2px); /* Sutil movimiento para hacer el botón más interactivo */
+}
+
+/* Estilo de los mensajes */
+.message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #d0d6df; /* Gris claro para los mensajes */
+}
