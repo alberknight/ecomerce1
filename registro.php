@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';
+include 'pizzeria1.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtener datos del formulario
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare($sql);
 
     // Vincular parámetros
-    $stmt->bind_param("sssss", $nombre, $telefono, $correo, $usuario, $contrasena);
+    $stmt->bind_param("sisss", $nombre, $telefono, $correo, $usuario, $contrasena);
     
     // Ejecutar la consulta y verificar el resultado
     if ($stmt->execute()) {
