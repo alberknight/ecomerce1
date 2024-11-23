@@ -433,3 +433,35 @@ header.sticky{
 		margin-top: 150px;
 	}
 }
+/* Contenedor de la imagen y el botón */
+.menu-image {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo inicial del botón */
+.menu-image .btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #ff5a00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    opacity: 0; /* Ocultar botón inicialmente */
+    visibility: hidden; /* Ocultar del flujo del documento */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Mostrar botón al pasar el cursor por la imagen */
+.menu-image:hover .btn {
+    opacity: 1; /* Mostrar botón */
+    visibility: visible;
+}
+
+/* Estilo adicional del botón al pasar el cursor */
+.menu-image .btn:hover {
+    background-color: #ff7700; /* Cambio de color al hover */
+}
