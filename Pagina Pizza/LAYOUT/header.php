@@ -57,10 +57,12 @@
             <h1>Menu Popuiar de Pizzas Deliciosas</h1>
         </div>
         <div class="menu-content">
+
+
             <div class="row">
                 <div class="menu-image">
                     <img src="../img/margarita.jpg" alt="main-product1">
-                    <a href="../pizza_margarita.php" class="btn">Ver más</a>
+                    <a href="../Detalles_pizza/pizza_margarita.php" class="btn">Ver más</a>
                 </div>
                 <div class="menu-text">
                     <div class="menu-left">
@@ -81,7 +83,10 @@
             </div>
 
             <div class="row">
-                <img src="../img/mexicana.png" alt="main-product2">
+                <div class="menu-image">
+                    <img src="../img/mexicana.png" alt="main-product2">
+                    <a href="../Detalles_pizza/pizza_mexicana.php" class="btn">Ver más</a>
+                </div>
                 <div class="menu-text">
                     <div class="menu-left">
                         <h4>Mexicana</h4>
@@ -100,7 +105,10 @@
                 </div>
             </div>
             <div class="row">
-                <img src="../img/vega.jpg" alt="main-product3">
+                <div class="menu-image">
+                    <img src="../img/vega.jpg" alt="main-product2">
+                    <a href="../Detalles_pizza/pizza_vegana.php" class="btn">Ver más</a>
+                </div>
                 <div class="menu-text">
                     <div class="menu-left">
                         <h4>Vegana</h4>
@@ -118,8 +126,12 @@
                     <a href="#"><i class='bx bxs-star'></i></a>
                 </div>
             </div>
+
             <div class="row">
-                <img src="../img/Pepperoni.jpg" alt="main-product4">
+                <div class="menu-image">
+                    <img src="../img/Pepperoni.jpg" alt="main-product2">
+                    <a href="../Detalles_pizza/pizza_pepperoni.php" class="btn">Ver más</a>
+                </div>
                 <div class="menu-text">
                     <div class="menu-left">
                         <h4>Pepperoni</h4>
@@ -138,7 +150,10 @@
                 </div>
             </div>
             <div class="row">
-                <img src="../img/hawa.jpg" alt="main-product4">
+                <div class="menu-image">
+                    <img src="../img/hawa.jpg" alt="main-product1">
+                    <a href="../Detalles_pizza/pizza_hawaiana.php" class="btn">Ver más</a>
+                </div>
                 <div class="menu-text">
                     <div class="menu-left">
                         <h4>Hawaiana</h4>
@@ -156,27 +171,12 @@
                     <a href="#"><i class='bx bxs-star'></i></a>
                 </div>
             </div>
+
             <div class="row">
-                <img src="../img/hawa.jpg" alt="main-product4">
-                <div class="menu-text">
-                    <div class="menu-left">
-                        <h4>Hawaiana</h4>
-                    </div>
-                    <div class="menu-right">
-                        <h5>$17.00</h5>
-                    </div>
+                <div class="menu-image">
+                    <img src="../img/chicken.jpg" alt="main-product1">
+                    <a href="../Detalles_pizza/pizza_pollo-hawaiana.php" class="btn">Ver más</a>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, quos?</p>
-                <div class="star">
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                </div>
-            </div>
-            <div class="row">
-                <img src="../img/chicken.jpg" alt="main-product4">
                 <div class="menu-text">
                     <div class="menu-left">
                         <h4>Pollo-Hawaiana</h4>
