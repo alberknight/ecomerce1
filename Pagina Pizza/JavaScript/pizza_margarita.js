@@ -1,10 +1,18 @@
 function toggleSizeOption(size) {
     const container = document.getElementById('size-options-container');
+    const buttons = document.querySelectorAll('.size-button');
     
     // Limpiar el contenido previo si ya está visible la misma opción
     if (container.dataset.currentSize === size) {
         container.innerHTML = '';
         container.dataset.currentSize = '';
+
+        // Restaurar el ancho original de todos los botones
+        buttons.forEach((button) => {
+            button.classList.remove('selected');
+            button.style.width = ''; // Restaurar el ancho original
+        });
+
         return;
     }
     
@@ -22,16 +30,19 @@ function toggleSizeOption(size) {
         </div>
     `;
 
-    // Resaltar el botón seleccionado
-    const buttons = document.querySelectorAll('.size-button');
-    buttons.forEach((button) => button.classList.remove('selected'));
-    
+    // Restaurar el tamaño de todos los botones y resaltar el seleccionado
+    buttons.forEach((button) => {
+        button.classList.remove('selected');
+        button.style.width = ''; // Restaurar el ancho original
+    });
+
     const selectedButton = Array.from(buttons).find((button) =>
         button.textContent.toLowerCase() === size
     );
     
     if (selectedButton) {
         selectedButton.classList.add('selected');
+        selectedButton.style.width = '150px'; // Incrementar el ancho del botón seleccionado
     }
 
     console.log(`Sección desplegada para tamaño: ${size}`); // Para depuración

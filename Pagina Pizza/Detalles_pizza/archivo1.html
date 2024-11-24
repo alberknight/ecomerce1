@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Piezas</title>
+</head>
+<body>
+    <h1>Realiza tu pedido</h1>
+    <form id="pedidoForm">
+        <label for="cantidad">Cantidad de piezas:</label>
+        <input type="number" id="cantidad" name="cantidad" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById('pedidoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+            const cantidadPiezas = document.getElementById('cantidad').value;
+
+            // Guardar la cantidad en localStorage
+            localStorage.setItem('cantidadPiezas', cantidadPiezas);
+
+            // Redirigir a otro archivo
+            window.location.href = 'archivo2.html';
+        });
+    </script>
+</body>
+</html>

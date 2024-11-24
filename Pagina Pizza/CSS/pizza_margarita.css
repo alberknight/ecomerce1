@@ -198,3 +198,21 @@ height: 30px; /* Ajustar la altura para que quede alineado */
 .add-to-cart:hover {
     background-color: #ff9110;;
 }
+.size-selection {
+    display: flex; /* Distribuir los botones en una fila */
+    justify-content: space-between; /* Espaciado uniforme */
+    align-items: center; /* Centrar los botones verticalmente */
+    width: 300px; /* Ancho fijo para evitar movimiento */
+    margin: 20px auto; /* Centrar el contenedor horizontalmente */
+}
+
+.size-button {
+    flex: 1; /* Todos los botones comparten el mismo espacio */
+    margin: 0 5px; /* Separación uniforme entre botones */
+    height: 40px;
+    transition: transform 0.3s ease; /* Transición suave para cambios de escala */
+}
+
+.size-button.selected {
+    transform: scale(1.2); /* Escalar el botón seleccionado */
+}
